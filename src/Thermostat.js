@@ -3,6 +3,7 @@
 function Thermostat() {
   this.temperature = 20;
   this.minimum = 10;
+  this.maximum = 25;
   this.isInPowerSavingMode = true;
 }
 
@@ -19,5 +20,14 @@ Thermostat.prototype.down = function() {
 }
 
 Thermostat.prototype.switchPowerSavingMode = function() {
-  this.isInPowerSavingMode = false;
+    this.isInPowerSavingMode = !this.isInPowerSavingMode;
+    this.switchMaximum();
+}
+
+Thermostat.prototype.switchMaximum = function() {
+  if (this.isInPowerSavingMode) {
+    this.maximum = 25;
+  } else {
+    this.maximum = 32;
+  }
 }

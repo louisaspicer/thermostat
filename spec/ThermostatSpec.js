@@ -34,13 +34,29 @@ describe('Thermostat', function() {
     expect(function(){ thermostat.down(); }).toThrowError("At minimum temperature")
   });
 
-  // it('has a maximum temperature of 25 when in power saving mode', function() {
-  //   expect(thermostat.maximum())
-  // });
+  it('has a maximum temperature of 25 when in power saving mode', function() {
+    expect(thermostat.maximum).toEqual(25);
+  });
 
-  it('can switch power saving mode off', function() {
-    thermostat.switchPowerSavingMode();
-    expect(thermostat.isInPowerSavingMode).toEqual(false);
+  describe('When not in power saving mode', function() {
+
+    beforeEach(function() {
+      thermostat.switchPowerSavingMode();
+    });
+
+    it('power saving mode is off', function() {
+      expect(thermostat.isInPowerSavingMode).toEqual(false);
+    });
+
+    it('can switch power saving mode back on', function() {
+      thermostat.switchPowerSavingMode();
+      expect(thermostat.isInPowerSavingMode).toEqual(true);
+    });
+
+    it('has a maximum temperature of 32', function() {
+      expect(thermostat.maximum).toEqual(32);
+    });
+
   });
 
 

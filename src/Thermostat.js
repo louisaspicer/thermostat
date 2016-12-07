@@ -8,7 +8,11 @@ function Thermostat() {
 }
 
 Thermostat.prototype.up = function() {
-  this.temperature++
+  if (this.temperature >= this.maximum ) {
+    throw TypeError("At maximum temperature")
+  } else {
+  this.temperature++;
+  }
 }
 
 Thermostat.prototype.down = function() {
@@ -30,4 +34,8 @@ Thermostat.prototype.switchMaximum = function() {
   } else {
     this.maximum = 32;
   }
+}
+
+Thermostat.prototype.resetTemperature = function() {
+  this.temperature = 20;
 }

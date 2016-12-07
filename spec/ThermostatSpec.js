@@ -30,12 +30,23 @@ describe('Thermostat', function() {
   });
 
   it('should not be able to decrease temperature below 10', function() {
-    thermostat.temperature = 10
+    thermostat.temperature = thermostat.minimum
     expect(function(){ thermostat.down(); }).toThrowError("At minimum temperature")
   });
 
   it('has a maximum temperature of 25 when in power saving mode', function() {
     expect(thermostat.maximum).toEqual(25);
+  });
+
+  it('should not be able to increase temperature above 25', function() {
+    thermostat.temperature = thermostat.maximum
+    expect(function(){ thermostat.up(); }).toThrowError("At maximum temperature")
+  });
+
+  it('should be able to reset temperature to 20', function() {
+    thermostat.up();
+    thermostat.resetTemperature();
+    expect(thermostat.temperature).toEqual(20);
   });
 
   describe('When not in power saving mode', function() {
@@ -55,6 +66,11 @@ describe('Thermostat', function() {
 
     it('has a maximum temperature of 32', function() {
       expect(thermostat.maximum).toEqual(32);
+    });
+
+    it('should not be able to increase temperature above 32', function() {
+      thermostat.temperature = thermostat.maximum
+      expect(function(){ thermostat.up(); }).toThrowError("At maximum temperature")
     });
 
   });

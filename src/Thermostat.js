@@ -26,6 +26,9 @@ Thermostat.prototype.down = function() {
 Thermostat.prototype.switchPowerSavingMode = function() {
     this.isInPowerSavingMode = !this.isInPowerSavingMode;
     this.switchMaximum();
+    if (this.temperature > this.maximum) {
+      this.temperature = this.maximum
+    }
 }
 
 Thermostat.prototype.switchMaximum = function() {

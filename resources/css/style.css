@@ -29,3 +29,23 @@ button:active {
    border-top-color: #1b435e;
    background: #1b435e;
    }
+
+.low-usage {
+  color: green;
+}
+
+.medium-usage {
+  color: black;
+}
+
+.high-usage {
+  color: red;
+}
+
+.On {
+  color: green;
+}
+
+.Off {
+  color: red;
+}

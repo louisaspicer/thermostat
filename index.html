@@ -2,23 +2,28 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <script src="jquery.js"></script>
+    <script src="interface.js"></script>
     <title>Thermostat</title>
   </head>
   <body>
+    <div id="table" style="display:none;">
     <table style="width:100%">
       <tr>
         <th>Temperature: <span id='temperature' type='text'></span><br>
             Energy Usage: <span id='energy-usage' type='text'></span><br>
             Power Saving Mode: <span id='psm-status' type='text'></span>
         </th>
-        <th>
-        <button id="temperature-up">☀</button>
-        <button id="temperature-down">❄</button><br><br>
-        <button id="temperature-reset">reset</button><br><br>
-        <button id="powersavingmode">PSM on/off</button>
+
+          <th>
+          <button id="temperature-up">☀</button>
+          <button id="temperature-down">❄</button><br><br>
+          <button id="temperature-reset">reset</button><br><br>
+          <button id="powersavingmode">PSM on/off</button>
         </th>
       </tr>
     </table>
+    </div>
 
     <script src='src/Thermostat.js'></script>
   </body>

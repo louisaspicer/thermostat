@@ -9,30 +9,40 @@
   <body>
     <div id="table" style="display:none;">
       <center>
-        Weather in your City:
+        Weather in your city:
         <br>
-        <span id="current-temperature-outside"></span> degrees, <span id="description"></span>
+        <br>
         <form id="select-city">
           <input id="current-city" type="text" placeholder="My City"></input>
           <button type="submit">Submit</button>
-        </form>      
-    </center>
+        </form>
+        <span id="current-temperature-outside"></span> °C: <span id="description"></span>
+        <br>
+        <br>
 
-    <table style="width:100%">
-      <tr>
-        <th>Temperature: <span id='temperature' type='text'></span><br>
-            Energy Usage: <span id='energy-usage' type='text'></span><br>
-            Power Saving Mode: <span id='psm-status' type='text'></span>
-        </th>
+    <!-- <table style="width:100%">
+      <tr> -->
+      <section class="display", font-size: 20px;>
+        <!-- <th> -->
+          Thermostat temperature: <span id='temperature' type='text'></span><br>
+          Energy Usage: <span id='energy-usage' type='text'></span><br>
+          Power Saving Mode: <span id='psm-status' type='text'></span>
+        <!-- </th> -->
+      </section>
 
-          <th>
-          <button id="temperature-up">☀</button>
-          <button id="temperature-down">❄</button><br><br>
-          <button id="temperature-reset">reset</button><br><br>
-          <button id="powersavingmode">PSM on/off</button>
-        </th>
+          <!-- <th> -->
+      <section class="controls">
+        <br>
+        <br>
+        <button id="temperature-up">☀</button>
+        <button id="temperature-down">❄</button>
+        <button id="temperature-reset">reset</button>
+        <button id="powersavingmode">PSM on/off</button>
+      </section>
+        <!-- </th>
       </tr>
-    </table>
+    </table> -->
+      </center>
     </div>
 
     <script src='src/Thermostat.js'></script>

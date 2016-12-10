@@ -58,8 +58,6 @@ $( document ).ready(function() {
     })
   }
 
-
-
   function refresh() {
     $("#temperature").text(thermostat.temperature);
     $("#energy-usage").text(thermostat.currentEnergyUsage());

@@ -9,7 +9,7 @@ One of the challenges in week 5 was to build the business logic to model a simpl
   * Clone this repo to your machine and `cd` into that directory.
   * To open the app, run `open index.html` in the command line.
   * To run the Jasmine tests, run `open SpecRunner.html` in the command line.
-  
+
 ## How to use the app: ##
   * To view the weather in your city, type in your city and click the submit page
   * This should then update the degrees below the input box and also show a short description of the weather.

@@ -11,5 +11,4 @@ class ThermostatData
   property :city, String
   property :city_temperature, Integer
 
-
 end

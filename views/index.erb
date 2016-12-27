@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-    <script src="jquery.js"></script>
-    <script src="interface.js"></script>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css">
+    <script src="../jquery.js"></script>
+    <script src="../interface.js"></script>
+    <script src='../Thermostat.js'></script>
+
     <title>Thermostat</title>
   </head>
   <body>
     <div id="table" style="display:none;">
       <center>
-        Weather in your city:
+        Weather in <span id="city">your city</span>
         <br>
         <br>
         <form id="select-city">
@@ -46,6 +48,5 @@
       </center>
     </div>
 
-    <script src='src/Thermostat.js'></script>
   </body>
 </html>

@@ -5,8 +5,10 @@ ruby '2.3.1'
 
 gem 'sinatra'
 gem 'data_mapper'
+gem 'pg'
 gem 'dm-postgres-adapter'
 gem 'database_cleaner'
+gem 'json'
 
 group :test do
   gem 'rspec'

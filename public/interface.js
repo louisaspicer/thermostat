@@ -1,29 +1,32 @@
 $( document ).ready(function() {
   var thermostat = new Thermostat();
 
-  refresh();
+  $("#table").fadeIn(3000);
+
+  $.get("http://localhost:4567/thermostat/data", function(data){
+    console.log(data);
+    thermostat.setTemperature(data.temperature);
+    $("#temperature").text(thermostat.temperature);
+    $("#current-temperature-outside").text(data.city_temperature);
+    $("#description").text(data.weather_description);
+    $("#city").text(data.city);
+  });
 
   $("#temperature-up").click(function( event ) {
-    thermostat.up()
-    refresh();
+    thermostat.up();
   });
 
   $("#temperature-down").click(function( event ) {
-    thermostat.down()
-    refresh();
+    thermostat.down();
   });
 
   $("#temperature-reset").click(function( event ) {
-    thermostat.resetTemperature()
-    refresh();
+    thermostat.resetTemperature();
   });
 
   $("#powersavingmode").click(function( event ) {
     thermostat.switchPowerSavingMode();
-    refresh();
   });
-
-  $("#table").fadeIn(3000);
 
   function psmStatus() {
     if (thermostat.isInPowerSavingMode === true) {
@@ -31,12 +34,18 @@ $( document ).ready(function() {
     } else {
       return "Off";
     }
-  }
+  };
 
   $("#select-city").submit(function(event) {
     event.preventDefault();
     var city = $("#current-city").val();
       displayTemperature(city) + "°C:" + displayWeatherDescription(city);
+      $("#city").text(city);
+    $.post("http://localhost:4567/thermostat/data",
+      {temperature: thermostat.getTemperature(),
+       city: city,
+       city_temperature: displayTemperature(city),
+       weather_description: displayWeatherDescription(city)});
   });
 
   function displayTemperature(city) {
@@ -45,9 +54,8 @@ $( document ).ready(function() {
     var units = "&units=metric"
     $.get(url + token + units, function(data) {
       $("#current-temperature-outside").text(data.main.temp);
-    })
-
-  }
+    });
+  };
 
   function displayWeatherDescription(city) {
     var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city
@@ -55,15 +63,16 @@ $( document ).ready(function() {
     var units = "&units=metric"
     $.get(url + token + units, function(data) {
       $("#description").text(data.weather[0].description);
-    })
-  }
+    });
+  };
 
-  function refresh() {
-    $("#temperature").text(thermostat.temperature);
+  $("button").click(function() {
+    $("#temperature").text(thermostat.getTemperature());
     $("#energy-usage").text(thermostat.currentEnergyUsage());
     $("#energy-usage").attr('class', thermostat.currentEnergyUsage());
     $("#psm-status").text(psmStatus());
     $("#psm-status").attr('class', psmStatus());
-  }
-
+    $.post("http://localhost:4567/thermostat/data", {temperature: thermostat.getTemperature()}
+    );
+  });
 });

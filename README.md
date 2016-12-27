@@ -26,5 +26,5 @@ One of the challenges in week 5 was to build the business logic to model a simpl
 
 ### Future changes to implement ###
   * Complete building my own web server to provide an API to persist data, using Sinatra and DataMapper.
-  * In the **Sinatra-API branch**, I have updated the Javascript user interface so that it communicates with the API through GET and POST requests, but still need to debug the broken requests.
+  * In the **Sinatra-API branch**, I have updated the Javascript user interface so that it communicates with the API through GET and POST requests, but the requests are still broken, so I will need to continue debugging this.
   * It should save the selected city, its weather and description.

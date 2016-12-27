@@ -25,6 +25,6 @@ One of the challenges in week 5 was to build the business logic to model a simpl
   * The minimum temperature is 10 degrees.
 
 ### Future changes to implement ###
-  * Complete building my own web server to provide an API, using Sinatra.
-  * Update the Javascript user interface so that it can communicate with the API through GET and POST requests.
-  * Save the selected city using the API.
+  * Complete building my own web server to provide an API to persist data, using Sinatra and DataMapper.
+  * In the **Sinatra-API branch**, I have updated the Javascript user interface so that it communicates with the API through GET and POST requests, but still need to debug the broken requests.
+  * It should save the selected city, its weather and description.

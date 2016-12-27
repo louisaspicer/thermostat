@@ -1,6 +1,5 @@
-ENV["RACK_ENV"] ||= "development"
-
 require 'sinatra/base'
+require './models/datamapper_setup.rb'
 require './models/thermostat.rb'
 require 'json'
 
@@ -10,12 +9,9 @@ class Thermostat < Sinatra::Base
   end
 
   get '/thermostat/data' do
-    thermostat = ThermostatData.get(1)
+    @thermostat = ThermostatData.get(1)
     content_type :json
-    {temperature: thermostat.temperature,
-     city: thermostat.city,
-     city_temperature: thermostat.city_temperature,
-     weather_description: thermostat.weather_description}.to_json
+    {temperature: @thermostat.temperature}.to_json
   end
 
   post '/thermostat/data' do

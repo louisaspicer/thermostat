@@ -4,7 +4,6 @@ $( document ).ready(function() {
   $("#table").fadeIn(3000);
 
   $.get("http://localhost:4567/thermostat/data", function(data){
-    console.log(data);
     thermostat.setTemperature(data.temperature);
     $("#temperature").text(thermostat.temperature);
     $("#current-temperature-outside").text(data.city_temperature);

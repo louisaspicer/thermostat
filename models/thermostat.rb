@@ -1,5 +1,6 @@
 require 'data_mapper'
 require 'dm-postgres-adapter'
+require './models/datamapper_setup.rb'
 
 class ThermostatData
 
@@ -13,6 +14,6 @@ class ThermostatData
 
   DataMapper.setup(:default, 'postgres://localhost/thermostat_data_test')
   DataMapper.finalize
-  DataMapper.auto_migrate!
+  DataMapper.auto_upgrade!
 
 end

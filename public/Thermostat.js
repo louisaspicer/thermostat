@@ -7,9 +7,9 @@ function Thermostat() {
   this.isInPowerSavingMode = true;
 }
 
-// Thermostat.prototype.setTemperature(temperature) = function() {
-//   this.temperature = temperature;
-// }
+Thermostat.prototype.setTemperature = function(temperature) {
+  this.temperature = temperature;
+}
 
 Thermostat.prototype.getTemperature = function() {
   return this.temperature;
